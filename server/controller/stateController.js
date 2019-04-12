@@ -58,7 +58,9 @@ class Controller {
                     capacity: req.body.capacity,
                     tag: req.body.tag,
                     price: req.body.price,
-                    createdAt: new Date()
+                    createdAt: new Date(),
+                    url: req.body.url,
+                    rating: req.body.rating
                 })
                 .then(data => {
                     res.status(201).json(data)

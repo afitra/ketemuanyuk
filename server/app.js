@@ -16,13 +16,13 @@ const express = require('express'),
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
-mongoose.connect('mongodb://localhost:27017/ketemuanyuk', {
-    useNewUrlParser: true
-})
-
-// mongoose.connect('mongodb+srv://afitra:afitra@lamaran-anzh1.mongodb.net/test?retryWrites=true', {
+// mongoose.connect('mongodb://localhost:27017/ketemuanyuk', {
 //     useNewUrlParser: true
 // })
+
+mongoose.connect('mongodb+srv://afitra:afitra@lamaran-anzh1.mongodb.net/test?retryWrites=true', {
+    useNewUrlParser: true
+})
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({

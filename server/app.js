@@ -10,7 +10,7 @@ const express = require('express'),
     routerGallery = require('./routes/routerGallery'),
     routerOrder = require('./routes/routerOrder'),
     routerState = require('./routes/routerState'),
-    port = 4000,
+    port = 3000,
     cors = require('cors'),
     mongoose = require('mongoose');
 mongoose.set('useNewUrlParser', true);

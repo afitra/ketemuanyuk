@@ -2,37 +2,40 @@ const MongoClient = require('mongodb').MongoClient;
 
 const url = 'mongodb://localhost:27017';
 // Database Name
-const dbName = 'ketemuanyuk';
+const dbName = 'webProfile';
+
+// Create a new MongoClient
+const client = new MongoClient(url, {
+    useNewUrlParser: true
+});
+
 
 const express = require('express'),
     app = express(),
     routerUser = require('./routes/routerUser'),
     routerGallery = require('./routes/routerGallery'),
-    routerOrder = require('./routes/routerOrder'),
-    routerState = require('./routes/routerState'),
-    port = 4000,
+    routerProject = require('./routes/routerProject'),
+    port = 3000,
     cors = require('cors'),
     mongoose = require('mongoose');
-// mongoose.set('findAndUpdate', false)
-mongoose.set('useNewUrlParser', true);
-mongoose.set('useFindAndModify', false);
-mongoose.set('useCreateIndex', true);
-// mongoose.connect('mongodb://localhost:27017/ketemuanyuk', {
+
+
+mongoose.set('findAndUpdate', false)
+// mongoose.connect('mongodb://localhost:27017/webProfile-dev', {
 //     useNewUrlParser: true
 // })
+
 mongoose.connect('mongodb+srv://afitra:afitra@lamaran-anzh1.mongodb.net/test?retryWrites=true', {
     useNewUrlParser: true
 })
-
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({
     extends: false
 }))
-app.use('/user', routerUser)
-app.use('/state', routerState)
-app.use('/order', routerOrder)
+app.use('/project', routerProject)
 app.use('/gallery', routerGallery)
+app.use('/users', routerUser)
 module.exports = app
 
 app.listen(port, function () {

@@ -21,6 +21,11 @@ var stateSchema = new Schema({
     createdAt: {
         type: Date,
         required: true
+    },
+    rating: Number,
+    url: {
+        type: String,
+        required: true
     }
 });
 let State = mongoose.model('States', stateSchema)

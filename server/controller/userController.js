@@ -12,7 +12,7 @@ class Controller {
                 email: req.body.email,
                 password: req.body.password,
                 role: req.body.role,
-                firstName: req.body.firstName,
+                firstName: 'user',
                 lastName: req.body.lastName,
                 nationality: req.body.nationality
             })
@@ -39,11 +39,13 @@ class Controller {
 
 
     static login(req, res) {
+        console.log('okokokokokok');
+        console.log(req.body.email);
 
-        if (req.body.email == undefined || req.body.password == undefined) {
-            // console.log('ooooo');
+        if (req.body.email == undefined && req.body.password == undefined) {
+            console.log('ooooo');
             res.json(500, {
-                error: "wrong email/password"
+                message: "wrong email/password"
             });
 
         } else {
@@ -54,6 +56,8 @@ class Controller {
                     // console.log('masok login');
 
                     let validasi = bcrypt.compareSync(req.body.password, user.password);
+                    // console.log(validasi, 'hhhhhhhhhhh');
+
                     if (validasi == false) {
                         res.status(400).json({
                             message: 'Wrong Email/Password'

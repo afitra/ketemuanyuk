@@ -2,6 +2,46 @@ const Model = require('../models/state')
 const jwt = require('../helper/jwt')
 class Controller {
 
+    static recomended(req, res) {
+
+
+        Model.aggregate([{
+                $sort: {
+                    rating: -1
+                }
+            }])
+            .then(function (data) {
+                res.status(200).json(data)
+            })
+            .catch(function (err) {
+                res.status(500).json({
+                    message: 'internal servel error'
+                })
+            })
+
+
+    }
+    // static edit(req, res) {
+
+    //     Model.findOneAndUpdate({
+    //             _id: req.params.id
+    //         }, {
+    //             url: 'https://cdn.jitunews.com/dynamic/thumb/2016/04/3260eff33bd19428e279f2134190ac82_630x420_thumb.jpg?w=630',
+    //         }, {
+    //             new: true
+    //         })
+    //         .then(data => {
+    //             res.status(200).json(data)
+    //             console.log(data);
+
+    //         })
+
+    //         .catch(function (err) {
+    //             res.status(500).json({
+    //                 messege: err.message
+    //             })
+    //         })
+    // }
 
     static add(req, res) {
         // console.log('controller============');

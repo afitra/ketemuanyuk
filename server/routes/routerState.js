@@ -7,5 +7,7 @@ const router = require('express').Router(),
 router.get('/all', stateController.all)
 router.post('/add', stateController.add)
 router.delete('/remove/:id', stateController.remove)
+// router.put('/edit/:id', stateController.edit)
+router.get('/recomended', stateController.recomended)
 
 module.exports = router

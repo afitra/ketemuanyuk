@@ -21,27 +21,27 @@ class Controller {
 
 
     }
-    // static edit(req, res) {
+     static edit(req, res) {
 
-    //     Model.findOneAndUpdate({
-    //             _id: req.params.id
-    //         }, {
-    //             url: 'https://cdn.jitunews.com/dynamic/thumb/2016/04/3260eff33bd19428e279f2134190ac82_630x420_thumb.jpg?w=630',
-    //         }, {
-    //             new: true
-    //         })
-    //         .then(data => {
-    //             res.status(200).json(data)
-    //             console.log(data);
+         Model.findOneAndUpdate({
+                 _id: req.params.id
+             }, {
+                 url: 'https://cdn.jitunews.com/dynamic/thumb/2016/04/3260eff33bd19428e279f2134190ac82_630x420_thumb.jpg?w=630',
+             }, {
+                 new: true
+             })
+             .then(data => {
+                 res.status(200).json(data)
+                 console.log(data);
 
-    //         })
+             })
 
-    //         .catch(function (err) {
-    //             res.status(500).json({
-    //                 messege: err.message
-    //             })
-    //         })
-    // }
+             .catch(function (err) {
+                 res.status(500).json({
+                     messege: err.message
+                 })
+             })
+     }
 
     static add(req, res) {
         // console.log('controller============');
